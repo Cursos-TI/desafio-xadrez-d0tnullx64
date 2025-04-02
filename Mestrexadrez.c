@@ -1,20 +1,23 @@
 #include <stdio.h>
+#define MOV_TORRE 5
+#define MOV_BISPO 5
+#define MOV_RAINHA 8
+#define MOV_CAVALO_VERT 2
+#define MOV_CAVALO_HORIZ 1
 
-// Função recursiva para Torre
+// Funções recursivas
 void moverTorre(int n) {
     if (n <= 0) return;
     printf("Direita\n");
     moverTorre(n - 1);
 }
 
-// Função recursiva para Bispo
 void moverBispo(int n) {
     if (n <= 0) return;
     printf("Cima, Direita\n");
     moverBispo(n - 1);
 }
 
-// Função recursiva para Rainha
 void moverRainha(int n) {
     if (n <= 0) return;
     printf("Esquerda\n");
@@ -23,24 +26,29 @@ void moverRainha(int n) {
 
 int main() {
     // Torre recursiva
-    moverTorre(5);
+    moverTorre(MOV_TORRE);
     printf("\n");
 
     // Bispo com loops aninhados
-    for (int i = 0; i < 5; i++) {
-        printf("Cima, Direita\n");
+    for (int vert = 0; vert < MOV_BISPO; vert++) {
+        for (int horiz = 0; horiz < 1; horiz++) {
+            printf("Cima, Direita\n");
+        }
     }
     printf("\n");
 
     // Rainha recursiva
-    moverRainha(8);
+    moverRainha(MOV_RAINHA);
     printf("\n");
 
-    // Cavalo com movimento complexo
-    for (int i = 0; i < 2; i++) {
+    // Cavalo com loops complexos (continue/break)
+    for (int i = 0; i < MOV_CAVALO_VERT * 2; i++) {
+        if (i >= MOV_CAVALO_VERT) {
+            printf("Direita\n");
+            break;
+        }
         printf("Cima\n");
     }
-    printf("Direita\n");
 
     return 0;
 }
