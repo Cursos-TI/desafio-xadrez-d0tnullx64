@@ -1,26 +1,29 @@
 #include <stdio.h>
+#define MOV_TORRE 5
+#define MOV_BISPO 5
+#define MOV_RAINHA 8
 
 int main() {
-    // Torre - 5 casas para direita
-    for (int i = 0; i < 5; i++) {
+    // Torre - for
+    for (int i = 0; i < MOV_TORRE; i++) {
         printf("Direita\n");
     }
     printf("\n");
 
-    // Bispo - 5 casas na diagonal
-    int contador = 0;
-    while (contador < 5) {
+    // Bispo - while (diagonal combinada)
+    int mov_bispo = 0;
+    while (mov_bispo < MOV_BISPO) {
         printf("Cima, Direita\n");
-        contador++;
+        mov_bispo++;
     }
     printf("\n");
 
-    // Rainha - 8 casas para esquerda
-    contador = 0;
+    // Rainha - do-while
+    int mov_rainha = 0;
     do {
         printf("Esquerda\n");
-        contador++;
-    } while (contador < 8);
+        mov_rainha++;
+    } while (mov_rainha < MOV_RAINHA);
 
     return 0;
 }
